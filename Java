@@ -1,0 +1,39 @@
+/Bu yazdığımız program kullanıcıdan ilk ikinci ve son ismini alarak baş harflerini birleştirip bize çıktı olarak verecek. Mesela Büşra Selen Çolak girdiğimizde BŞG olarak çıktı almamız gibi ...
+
+import javax.swing.*;
+
+//kütüphanemizi ekledik.
+
+public class Monogram {
+
+	public static void main(String[] args) {
+		
+		String name, first, middle, last, space,monogram;
+		space=" ";
+		// girilen ismi boşluklara göre split edip daha sonra name diye değişkene attıktan sonra ilk harflerini birleştireceğiz.
+		
+		name=JOptionPane.showInputDialog(null,"Enter your full name (first, middle, last ):");
+		//bir Option Pane ekranında kullanıcının ismini alıyoruz.
+		
+		first = name.substring(0, name.indexOf(space));
+		//ilk ismi boşluğa göre split edip first değişkenine attık.
+		name=name.substring(name.indexOf(space)+1,name.length());
+		
+		//boşluktan sonraki 2. ismi ismin uzunluğuna kadar alıp tekrar name değişkenine attık.
+		
+		System.out.println(name);
+		
+		middle=name.substring(0, name.indexOf(space));
+		last=name.substring(name.indexOf(space)+1, name.length());
+		//aynı işlemi 3. ismi alabilmek için de uyguladık.
+		
+		//isimlerin baş harflerini alabileceğimiz bir değişken tanımlayalım.
+		
+		monogram=first.substring(0, 1)+middle.substring(0, 1)+last.substring(0, 1);
+		
+		JOptionPane.showMessageDialog(null, "Your monogram is: "+monogram);
+		
+
+	}
+
+}
